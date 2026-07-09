@@ -2,7 +2,7 @@
 
 A structured collection of **Pydantic V2 notes, concepts, and practical code examples**.
 
-This repository documents my journey of learning Pydantic step by step, from basic data validation to complex models, custom validators, serialization, configuration, and real-world applications.
+This repository documents my step-by-step journey of learning Pydantic, from basic data validation to nested models, custom validators, serialization, model configuration, aliases, special data types, environment settings, error handling, and real-world applications.
 
 ---
 
@@ -13,31 +13,36 @@ Pydantic is a Python library for **data validation and parsing using Python type
 It helps developers:
 
 * Validate incoming data
-* Convert compatible data types automatically
+* Convert compatible data types
 * Create structured data models
-* Apply field-level validation rules
+* Apply field-level constraints
 * Validate nested and complex data
-* Create custom validation logic
+* Write custom validation logic
 * Serialize models into dictionaries and JSON
+* Manage application configuration
+* Validate special data types
 * Generate clear validation errors
 
 Pydantic is widely used in:
 
 * FastAPI applications
-* AI and LLM applications
 * Backend development
+* AI and LLM applications
 * Data pipelines
 * Configuration management
 * API request and response validation
 * Automation scripts
+* Structured AI output validation
 
 ---
 
-## 📚 Learning Roadmap
+# 📚 Learning Roadmap
 
-This repository is divided into 12 sections:
+This repository is divided into **12 sections**.
 
-### ✅ Section 1 — Why Pydantic Exists
+---
+
+## ✅ Section 1 — Why Pydantic Exists
 
 Topics covered:
 
@@ -52,7 +57,7 @@ Topics covered:
 
 ---
 
-### ✅ Section 2 — Building Your First Model
+## ✅ Section 2 — Building Your First Model
 
 Topics covered:
 
@@ -67,7 +72,7 @@ Topics covered:
 
 ---
 
-### ✅ Section 3 — Field Rules & Constraints
+## ✅ Section 3 — Field Rules & Constraints
 
 Topics covered:
 
@@ -84,7 +89,7 @@ Topics covered:
 
 ---
 
-### ✅ Section 4 — Complex & Nested Data
+## ✅ Section 4 — Complex & Nested Data
 
 Topics covered:
 
@@ -99,7 +104,7 @@ Topics covered:
 
 ---
 
-### ✅ Section 5 — Custom Validators
+## ✅ Section 5 — Custom Validators
 
 Topics covered:
 
@@ -114,7 +119,7 @@ Topics covered:
 
 ---
 
-### ✅ Section 6 — In & Out: Serialization
+## ✅ Section 6 — In & Out: Serialization
 
 Topics covered:
 
@@ -130,60 +135,147 @@ Topics covered:
 
 ---
 
-### ⏳ Section 7 — Model Configuration
+## ✅ Section 7 — Model Configuration
 
-Coming soon.
+Topics covered:
 
----
-
-### ⏳ Section 8 — Aliases & Computed Fields
-
-Coming soon.
-
----
-
-### ⏳ Section 9 — Special Data Types
-
-Coming soon.
-
----
-
-### ⏳ Section 10 — Settings Per Environment
-
-Coming soon.
+* `ConfigDict`
+* `model_config`
+* Extra field handling
+* `extra="forbid"`
+* `extra="ignore"`
+* `extra="allow"`
+* Frozen models
+* Assignment validation
+* String whitespace removal
+* Lowercase conversion
+* Uppercase conversion
 
 ---
 
-### ⏳ Section 11 — Reading Validation Errors
+## ✅ Section 8 — Aliases & Computed Fields
 
-Coming soon.
+Topics covered:
+
+* Field aliases
+* `alias`
+* `validation_alias`
+* `serialization_alias`
+* `by_alias=True`
+* Computed fields
+* `@computed_field`
+* Calculated model properties
+* Alias-based serialization
 
 ---
 
-### ⏳ Section 12 — Real-World Practice
+## ✅ Section 9 — Special Data Types
 
-Coming soon.
+Topics covered:
+
+* `EmailStr`
+* `HttpUrl`
+* UUID validation
+* Date validation
+* Time validation
+* Datetime validation
+* `timedelta`
+* IP address validation
+* `SecretStr`
+* Secret value handling
 
 ---
 
-## 📂 Repository Structure
+## ✅ Section 10 — Settings Per Environment
+
+Topics covered:
+
+* `pydantic-settings`
+* `BaseSettings`
+* Environment variables
+* `.env` files
+* `SettingsConfigDict`
+* Database configuration
+* API key configuration
+* Default settings values
+* Development configuration
+* Production configuration
+* `.env.example`
+* Secret management basics
+
+---
+
+## ⏳ Section 11 — Reading Validation Errors
+
+Coming soon.
+
+Planned topics:
+
+* `ValidationError`
+* `errors()`
+* `error_count()`
+* `json()`
+* Error locations
+* Error messages
+* Error types
+* Nested validation errors
+* API-friendly error formatting
+
+---
+
+## ⏳ Section 12 — Real-World Practice
+
+Coming soon.
+
+Planned projects:
+
+* User Registration Validator
+* Inventory Management Models
+* CLI Configuration Parser
+
+---
+
+# 📂 Repository Structure
 
 ```text
 PYDANTIC/
 │
-├── 01_why_pydantic_exists/
-├── 02_building_first_model/
-├── 03_field_rules_constraints/
-├── 04_complex_nested_data/
-├── 05_custom_validators/
-├── 06_serialization/
+├── Section 1/
+│   └── Why Pydantic Exists examples
+│
+├── Section 2/
+│   └── First Model examples
+│
+├── Section 3/
+│   └── Field Rules & Constraints examples
+│
+├── Section 4/
+│   └── Complex & Nested Data examples
+│
+├── Section 5/
+│   └── Custom Validator examples
+│
+├── Section 6/
+│   └── Serialization examples
+│
+├── Section 7/
+│   └── Model Configuration examples
+│
+├── Section 8/
+│   └── Alias & Computed Field examples
+│
+├── Section 9/
+│   └── Special Data Type examples
+│
+├── Section 10/
+│   └── Settings examples
 │
 └── README.md
 ```
 
 ---
 
-## ⚙️ Installation
+# ⚙️ Installation
 
 Install Pydantic:
 
@@ -191,7 +283,25 @@ Install Pydantic:
 pip install pydantic
 ```
 
-Check the installed version:
+For email validation:
+
+```bash
+pip install email-validator
+```
+
+For application settings:
+
+```bash
+pip install pydantic-settings
+```
+
+Or install everything together:
+
+```bash
+pip install pydantic email-validator pydantic-settings
+```
+
+Check the installed Pydantic version:
 
 ```bash
 pip show pydantic
@@ -199,7 +309,7 @@ pip show pydantic
 
 ---
 
-## 🧪 Basic Example
+# 🧪 Basic Example
 
 ```python
 from pydantic import BaseModel
@@ -224,6 +334,7 @@ Output:
 
 ```text
 name='Rahul' age=25
+
 <class 'int'>
 ```
 
@@ -231,7 +342,7 @@ Pydantic validates the input and converts compatible values into the expected ty
 
 ---
 
-## 🎯 Learning Goals
+# 🎯 Learning Goals
 
 The main goals of this repository are:
 
@@ -242,54 +353,110 @@ The main goals of this repository are:
 * Work with nested data
 * Create custom validators
 * Understand serialization and deserialization
-* Learn model configuration
-* Use Pydantic in backend and AI applications
-* Build real-world validation projects
+* Configure model behavior
+* Work with aliases
+* Create computed fields
+* Validate real-world data types
+* Manage environment-based configuration
+* Understand validation errors
+* Build practical Pydantic projects
 
 ---
 
-## 🛠️ Technologies Used
+# 🛠️ Technologies Used
 
 * Python
 * Pydantic V2
-* JSON
+* Pydantic Settings
 * Python Type Hints
+* JSON
+* Environment Variables
 * Git
 * GitHub
 
 ---
 
-## 🚀 Future Plans
+# 🚀 Future Plans
 
 After completing all 12 sections, this repository will include practical projects such as:
 
-* User Registration Validator
-* JSON Data Validator
-* Configuration Loader
-* Inventory Management Models
-* CLI Configuration Parser
+### 👤 User Registration Validator
+
+A complete user registration validation system covering:
+
+* Username validation
+* Email validation
+* Password rules
+* Password confirmation
+* Age validation
+* Optional profile information
+
+### 📦 Inventory Management Models
+
+A structured inventory validation system covering:
+
+* Product models
+* Price validation
+* Quantity validation
+* Product categories
+* Nested supplier information
+* Computed inventory values
+
+### ⚙️ CLI Configuration Parser
+
+A configuration management project covering:
+
+* Environment variables
+* `.env` files
+* Default configuration
+* Type conversion
+* Secret values
+* Development and production settings
 
 ---
 
-## 📖 Progress
+# 📖 Progress
 
 ```text
-██████████░░░░░░░░░░  6 / 12 Sections Completed
+█████████████████░░░  10 / 12 Sections Completed
 ```
 
-**Current Progress: 50%**
+**Current Progress: 83%**
+
+| Section | Topic                     | Status      |
+| ------- | ------------------------- | ----------- |
+| 01      | Why Pydantic Exists       | ✅ Completed |
+| 02      | Building Your First Model | ✅ Completed |
+| 03      | Field Rules & Constraints | ✅ Completed |
+| 04      | Complex & Nested Data     | ✅ Completed |
+| 05      | Custom Validators         | ✅ Completed |
+| 06      | Serialization             | ✅ Completed |
+| 07      | Model Configuration       | ✅ Completed |
+| 08      | Aliases & Computed Fields | ✅ Completed |
+| 09      | Special Data Types        | ✅ Completed |
+| 10      | Settings Per Environment  | ✅ Completed |
+| 11      | Reading Validation Errors | ⏳ Pending   |
+| 12      | Real-World Practice       | ⏳ Pending   |
 
 ---
 
-## ⭐ Purpose
+# ⭐ Purpose
 
-This repository is created for learning, revision, interview preparation, and practical implementation of Pydantic concepts.
+This repository is created for:
 
-The goal is not only to understand the syntax, but also to understand how reliable data validation improves backend systems, APIs, AI applications, and real-world Python projects.
+* Learning
+* Revision
+* Interview preparation
+* Backend development practice
+* API development preparation
+* AI Engineering preparation
+* Real-world Python data validation practice
+
+The goal is not only to learn Pydantic syntax, but also to understand how reliable data validation improves backend systems, APIs, AI applications, and production Python projects.
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Ankan Haldar**
 
